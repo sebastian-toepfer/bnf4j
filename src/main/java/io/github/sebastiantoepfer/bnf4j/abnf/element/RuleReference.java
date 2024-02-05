@@ -40,21 +40,17 @@ public final class RuleReference implements Element {
 
     @Override
     public boolean isValidFor(final ValidateableCodePoint codePoint) {
-        return ruleNameAsStringElement().isValidFor(codePoint);
+        return false;
     }
 
     @Override
     public Dimension dimension() {
-        return ruleNameAsStringElement().dimension();
-    }
-
-    Element ruleNameAsStringElement() {
-        return StringElement.of(name.name());
+        return Dimension.of(name.name().length());
     }
 
     @Override
     public <T extends Media<T>> T printOn(final T media) {
-        return media.withValue("type", "rule-ref").withValue("name", name);
+        return name.printOn(media);
     }
 
     @Override

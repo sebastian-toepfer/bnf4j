@@ -32,7 +32,6 @@ import static org.hamcrest.Matchers.nullValue;
 
 import io.github.sebastiantoepfer.ddd.media.core.HashMapMedia;
 import nl.jqno.equalsverifier.EqualsVerifier;
-import org.hamcrest.Matcher;
 import org.junit.jupiter.api.Test;
 
 class RuleReferenceTest {
@@ -56,23 +55,8 @@ class RuleReferenceTest {
     void should_be_printable() {
         assertThat(
             RuleReference.of(RuleName.of("test")).printOn(new HashMapMedia()),
-            allOf(
-                hasEntry(is("type"), is("rule-ref")),
-                (Matcher) hasEntry(
-                    is("name"),
-                    allOf(hasEntry(is("type"), is("rulename")), hasEntry(is("name"), is("test")))
-                )
-            )
+            allOf(hasEntry(is("type"), is("rulename")), hasEntry(is("name"), is("test")))
         );
-    }
-
-    @Test
-    void should_be_valid_if_codepoint_is_equals_codepoint_at_position() {
-        final Element element = RuleReference.of(RuleName.of("test"));
-        assertThat(element.isValidFor(ValidateableCodePoint.of(0, 't')), is(true));
-        assertThat(element.isValidFor(ValidateableCodePoint.of(1, 'e')), is(true));
-        assertThat(element.isValidFor(ValidateableCodePoint.of(2, 's')), is(true));
-        assertThat(element.isValidFor(ValidateableCodePoint.of(3, 't')), is(true));
     }
 
     @Test
