@@ -47,8 +47,7 @@ class GroupExtractorTest {
     @Test
     void should_create_group_with_more_than_one_element() {
         assertThat(
-            GroupExtractor
-                .of(new FakeOwner())
+            GroupExtractor.of(new FakeOwner())
                 .append('a')
                 .append(' ')
                 .append('b')
@@ -66,8 +65,7 @@ class GroupExtractorTest {
     @Test
     void should_create_alternative_inside() {
         assertThat(
-            GroupExtractor
-                .of(new FakeOwner())
+            GroupExtractor.of(new FakeOwner())
                 .append('a')
                 .append('/')
                 .append('b')

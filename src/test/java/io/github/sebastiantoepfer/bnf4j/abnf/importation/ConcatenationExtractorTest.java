@@ -47,8 +47,7 @@ class ConcatenationExtractorTest {
     @Test
     void should_create_repeating_rulereference() {
         assertThat(
-            ConcatenationExtractor
-                .of(new FakeOwner())
+            ConcatenationExtractor.of(new FakeOwner())
                 .append('1')
                 .append('*')
                 .append('a')
@@ -62,8 +61,7 @@ class ConcatenationExtractorTest {
     @Test
     void should_create_elements_from_multiline() {
         assertThat(
-            ConcatenationExtractor
-                .of(new FakeOwner())
+            ConcatenationExtractor.of(new FakeOwner())
                 .append('a')
                 .append('\r')
                 .append('\n')
@@ -79,8 +77,7 @@ class ConcatenationExtractorTest {
     @Test
     void should_create_elements_as_alternative() {
         assertThat(
-            ConcatenationExtractor
-                .of(new FakeOwner())
+            ConcatenationExtractor.of(new FakeOwner())
                 .append('a')
                 .append('/')
                 .append('b')
@@ -94,8 +91,7 @@ class ConcatenationExtractorTest {
     @Test
     void should_create_elements_as_mixed_with_alternative() {
         assertThat(
-            ConcatenationExtractor
-                .of(new FakeOwner())
+            ConcatenationExtractor.of(new FakeOwner())
                 .append('a')
                 .append(' ')
                 .append('b')

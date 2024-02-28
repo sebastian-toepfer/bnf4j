@@ -37,8 +37,7 @@ class RuleListExtractorTest {
     @Test
     void should_create_list_with_one_rule_with_rulereference() {
         assertThat(
-            RuleListExtractor
-                .of()
+            RuleListExtractor.of()
                 .append('a')
                 .append('=')
                 .append('b')
@@ -53,8 +52,7 @@ class RuleListExtractorTest {
     @Test
     void should_create_list_with_two_rules_with_rulereference() {
         assertThat(
-            RuleListExtractor
-                .of()
+            RuleListExtractor.of()
                 .append('a')
                 .append('=')
                 .append('b')

@@ -46,8 +46,7 @@ class RepetitionExtractorTest {
     @Test
     void should_create_atLeast_repeating_rulereference() {
         assertThat(
-            RepetitionExtractor
-                .of(new FakeOwner())
+            RepetitionExtractor.of(new FakeOwner())
                 .append('1')
                 .append('*')
                 .append('a')
@@ -61,8 +60,7 @@ class RepetitionExtractorTest {
     @Test
     void should_create_specificrepetition_rulereference() {
         assertThat(
-            RepetitionExtractor
-                .of(new FakeOwner())
+            RepetitionExtractor.of(new FakeOwner())
                 .append('1')
                 .append('1')
                 .append('a')
@@ -76,8 +74,7 @@ class RepetitionExtractorTest {
     @Test
     void should_create_repeating_rulereference() {
         assertThat(
-            RepetitionExtractor
-                .of(new FakeOwner())
+            RepetitionExtractor.of(new FakeOwner())
                 .append('*')
                 .append('a')
                 .append(' ')
@@ -90,8 +87,7 @@ class RepetitionExtractorTest {
     @Test
     void should_create_atMost_repeating_rulereference() {
         assertThat(
-            RepetitionExtractor
-                .of(new FakeOwner())
+            RepetitionExtractor.of(new FakeOwner())
                 .append('*')
                 .append('1')
                 .append('5')
@@ -106,8 +102,7 @@ class RepetitionExtractorTest {
     @Test
     void should_create_between_repeating_rulereference() {
         assertThat(
-            RepetitionExtractor
-                .of(new FakeOwner())
+            RepetitionExtractor.of(new FakeOwner())
                 .append('1')
                 .append('*')
                 .append('2')

@@ -43,12 +43,11 @@ class NewLineDetector implements ElementEndDetector {
     public NewLineDetector append(final int codePoint) {
         final NewLineDetector result;
         if (lf) {
-            result =
-                new NewLineDetector(
-                    cr && !Character.isWhitespace(codePoint),
-                    !Character.isWhitespace(codePoint),
-                    codePoint
-                );
+            result = new NewLineDetector(
+                cr && !Character.isWhitespace(codePoint),
+                !Character.isWhitespace(codePoint),
+                codePoint
+            );
         } else if (cr) {
             result = new NewLineDetector(codePoint == '\n', codePoint == '\n', codePoint);
         } else {

@@ -52,8 +52,7 @@ public final class Rule implements Printable {
 
     Predicate<String> asPredicate() {
         return s ->
-            IntStream
-                .range(0, s.length())
+            IntStream.range(0, s.length())
                 .boxed()
                 .map(i -> ValidateableCodePoint.of(i, s.codePointAt(i)))
                 .allMatch(elements::isValidFor);

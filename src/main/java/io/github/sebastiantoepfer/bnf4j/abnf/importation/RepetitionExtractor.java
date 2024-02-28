@@ -213,8 +213,11 @@ class RepetitionExtractor implements Extractor {
         public Extractor append(final int codePoint) {
             final Extractor result;
             if (Character.isDigit(codePoint)) {
-                result =
-                    new BetweenRepetitionExtractor(owner, minRepeat, maxRepeat.concat(Character.toString(codePoint)));
+                result = new BetweenRepetitionExtractor(
+                    owner,
+                    minRepeat,
+                    maxRepeat.concat(Character.toString(codePoint))
+                );
             } else {
                 result = ElementExtractor.of(this).append(codePoint);
             }

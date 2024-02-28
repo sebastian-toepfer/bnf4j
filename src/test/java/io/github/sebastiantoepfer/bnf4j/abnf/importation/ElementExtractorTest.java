@@ -72,8 +72,7 @@ class ElementExtractorTest {
     @Test
     void should_num_val() {
         assertThat(
-            ElementExtractor
-                .of(new FakeOwner())
+            ElementExtractor.of(new FakeOwner())
                 .append('%')
                 .append('b')
                 .append('1')
