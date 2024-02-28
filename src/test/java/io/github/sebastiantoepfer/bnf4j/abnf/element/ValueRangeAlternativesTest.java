@@ -56,12 +56,10 @@ class ValueRangeAlternativesTest {
     @Test
     void should_be_invalid_if_value_too_small() {
         assertThat(
-            ValueRangeAlternatives
-                .of(
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
-                )
-                .isValidFor(ValidateableCodePoint.of(0, 0x01)),
+            ValueRangeAlternatives.of(
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
+            ).isValidFor(ValidateableCodePoint.of(0, 0x01)),
             is(false)
         );
     }
@@ -69,12 +67,10 @@ class ValueRangeAlternativesTest {
     @Test
     void should_be_invalid_if_value_too_big() {
         assertThat(
-            ValueRangeAlternatives
-                .of(
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
-                )
-                .isValidFor(ValidateableCodePoint.of(0, 0x05)),
+            ValueRangeAlternatives.of(
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
+            ).isValidFor(ValidateableCodePoint.of(0, 0x05)),
             is(false)
         );
     }
@@ -82,12 +78,10 @@ class ValueRangeAlternativesTest {
     @Test
     void should_be_valid_if_value_is_in_range() {
         assertThat(
-            ValueRangeAlternatives
-                .of(
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
-                )
-                .isValidFor(ValidateableCodePoint.of(0, 0x03)),
+            ValueRangeAlternatives.of(
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
+            ).isValidFor(ValidateableCodePoint.of(0, 0x03)),
             is(true)
         );
     }
@@ -95,12 +89,10 @@ class ValueRangeAlternativesTest {
     @Test
     void should_be_valid_if_value_is_minimum() {
         assertThat(
-            ValueRangeAlternatives
-                .of(
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
-                )
-                .isValidFor(ValidateableCodePoint.of(0, 0x02)),
+            ValueRangeAlternatives.of(
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
+            ).isValidFor(ValidateableCodePoint.of(0, 0x02)),
             is(true)
         );
     }
@@ -108,12 +100,10 @@ class ValueRangeAlternativesTest {
     @Test
     void should_be_valid_if_value_is_maximum() {
         assertThat(
-            ValueRangeAlternatives
-                .of(
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
-                    NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
-                )
-                .isValidFor(ValidateableCodePoint.of(0, 0x04)),
+            ValueRangeAlternatives.of(
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x02),
+                NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x04)
+            ).isValidFor(ValidateableCodePoint.of(0, 0x04)),
             is(true)
         );
     }
@@ -121,12 +111,10 @@ class ValueRangeAlternativesTest {
     @Test
     void should_be_printable() {
         assertThat(
-            ValueRangeAlternatives
-                .of(
-                    NumericCharacter.of(NumericCharacter.BASE.BINARY, 0b10101),
-                    NumericCharacter.of(NumericCharacter.BASE.BINARY, 0b10111)
-                )
-                .printOn(new HashMapMedia()),
+            ValueRangeAlternatives.of(
+                NumericCharacter.of(NumericCharacter.BASE.BINARY, 0b10101),
+                NumericCharacter.of(NumericCharacter.BASE.BINARY, 0b10111)
+            ).printOn(new HashMapMedia()),
             allOf(
                 hasEntry(is("type"), is("val-range")),
                 hasEntry(
@@ -141,12 +129,10 @@ class ValueRangeAlternativesTest {
     @Test
     void should_return_two_as_dimension() {
         assertThat(
-            ValueRangeAlternatives
-                .of(
-                    NumericCharacter.of(NumericCharacter.BASE.BINARY, 0b10101),
-                    NumericCharacter.of(NumericCharacter.BASE.BINARY, 0b10111)
-                )
-                .dimension(),
+            ValueRangeAlternatives.of(
+                NumericCharacter.of(NumericCharacter.BASE.BINARY, 0b10101),
+                NumericCharacter.of(NumericCharacter.BASE.BINARY, 0b10111)
+            ).dimension(),
             is(Dimension.of(1))
         );
     }

@@ -58,12 +58,10 @@ class SequenceGroupTest {
     @Test
     void should_return_dimension_as_sum() {
         assertThat(
-            SequenceGroup
-                .of(
-                    Alternative.of(StringElement.of("ab"), StringElement.of("cde")),
-                    Alternative.of(StringElement.of("x"), StringElement.of("yz"))
-                )
-                .dimension(),
+            SequenceGroup.of(
+                Alternative.of(StringElement.of("ab"), StringElement.of("cde")),
+                Alternative.of(StringElement.of("x"), StringElement.of("yz"))
+            ).dimension(),
             is(Dimension.of(3, 5))
         );
     }

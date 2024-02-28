@@ -37,8 +37,7 @@ class RuleExtractorTest {
     @Test
     void should_create_rule_with_rulereference() {
         assertThat(
-            RuleExtractor
-                .of(new FakeOwner())
+            RuleExtractor.of(new FakeOwner())
                 .append('a')
                 .append(' ')
                 .append('=')
@@ -55,8 +54,7 @@ class RuleExtractorTest {
     @Test
     void should_create_rule_with_repatiting_rulereference() {
         assertThat(
-            RuleExtractor
-                .of(new FakeOwner())
+            RuleExtractor.of(new FakeOwner())
                 .append('a')
                 .append(' ')
                 .append('=')

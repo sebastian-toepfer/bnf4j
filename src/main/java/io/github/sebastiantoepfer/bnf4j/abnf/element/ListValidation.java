@@ -43,10 +43,9 @@ class ListValidation {
         if (first.dimension().isInRange(codePoint)) {
             result = first.isValidFor(codePoint);
         } else {
-            result =
-                newElement
-                    .apply(elements.subList(1, elements.size()))
-                    .isValidFor(codePoint.repositionBackBy(first.dimension()));
+            result = newElement
+                .apply(elements.subList(1, elements.size()))
+                .isValidFor(codePoint.repositionBackBy(first.dimension()));
         }
         return result;
     }

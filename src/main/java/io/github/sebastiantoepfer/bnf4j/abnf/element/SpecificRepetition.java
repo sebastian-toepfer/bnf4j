@@ -55,8 +55,9 @@ public final class SpecificRepetition implements Element {
             if (elementToRepeat.dimension().isInRange(codePoint)) {
                 result = elementToRepeat.isValidFor(codePoint);
             } else {
-                result =
-                    of(elementToRepeat, occurences).isValidFor(codePoint.repositionBackBy(elementToRepeat.dimension()));
+                result = of(elementToRepeat, occurences).isValidFor(
+                    codePoint.repositionBackBy(elementToRepeat.dimension())
+                );
             }
         } else {
             result = false;

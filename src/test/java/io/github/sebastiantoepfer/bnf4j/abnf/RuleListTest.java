@@ -54,9 +54,9 @@ class RuleListTest {
     @Test
     void should_be_printable() {
         assertThat(
-            RuleList
-                .of(Rule.of(RuleName.of("rulename"), Alternative.of(StringElement.of("/"), StringElement.of(";"))))
-                .printOn(new HashMapMedia()),
+            RuleList.of(
+                Rule.of(RuleName.of("rulename"), Alternative.of(StringElement.of("/"), StringElement.of(";")))
+            ).printOn(new HashMapMedia()),
             (Matcher) hasEntry(
                 is("rules"),
                 contains(

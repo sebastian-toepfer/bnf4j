@@ -81,9 +81,11 @@ public final class VariableRepetition implements Element {
                 result = element.isValidFor(codePoint);
             } else {
                 final int newMinOccurrences = Math.min(minOccurrences, 1);
-                result =
-                    ofBetween(element, newMinOccurrences, Math.max(newMinOccurrences, maxOccurrences - 1))
-                        .isValidFor(codePoint.repositionBackBy(element.dimension()));
+                result = ofBetween(
+                    element,
+                    newMinOccurrences,
+                    Math.max(newMinOccurrences, maxOccurrences - 1)
+                ).isValidFor(codePoint.repositionBackBy(element.dimension()));
             }
         } else {
             result = false;

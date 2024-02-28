@@ -104,8 +104,7 @@ public final class NumericCharacter implements Element {
         }
 
         public static BASE findByShortName(final char baseChar) {
-            return Arrays
-                .stream(BASE.values())
+            return Arrays.stream(BASE.values())
                 .filter(b -> b.baseShortName == baseChar)
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);

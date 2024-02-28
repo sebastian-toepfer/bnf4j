@@ -36,8 +36,7 @@ class NumValExtractorTest {
     @Test
     void should_create_bin_val() {
         assertThat(
-            NumValExtractor
-                .of(new FakeOwner())
+            NumValExtractor.of(new FakeOwner())
                 .append('b')
                 .append('0')
                 .append('1')
@@ -51,8 +50,7 @@ class NumValExtractorTest {
     @Test
     void should_create_dec_val() {
         assertThat(
-            NumValExtractor
-                .of(new FakeOwner())
+            NumValExtractor.of(new FakeOwner())
                 .append('d')
                 .append('3')
                 .append('1')
@@ -66,8 +64,7 @@ class NumValExtractorTest {
     @Test
     void should_create_hex_val() {
         assertThat(
-            NumValExtractor
-                .of(new FakeOwner())
+            NumValExtractor.of(new FakeOwner())
                 .append('x')
                 .append('3')
                 .append('a')
@@ -81,8 +78,7 @@ class NumValExtractorTest {
     @Test
     void should_create_value_range() {
         assertThat(
-            NumValExtractor
-                .of(new FakeOwner())
+            NumValExtractor.of(new FakeOwner())
                 .append('x')
                 .append('3')
                 .append('a')

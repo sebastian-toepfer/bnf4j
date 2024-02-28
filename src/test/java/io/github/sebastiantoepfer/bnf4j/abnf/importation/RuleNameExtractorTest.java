@@ -65,8 +65,7 @@ class RuleNameExtractorTest {
     @Test
     void should_stop_rule_name_after_first_non_valid_char() {
         assertThat(
-            RuleNameExtractor
-                .of(new FakeOwner())
+            RuleNameExtractor.of(new FakeOwner())
                 .append('a')
                 .append('-')
                 .append('b')

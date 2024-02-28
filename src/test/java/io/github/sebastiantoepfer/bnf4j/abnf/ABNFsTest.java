@@ -46,37 +46,35 @@ class ABNFsTest {
     void should_create_abnf_rules_from_string() {
         //Note: a rule MUST end with crlf!! see rfc5234. lf is already set by the formatting :)
         assertThat(
-            ABNFs
-                .of(
-                    """
-                    rulelist       =  1*( rule / (*c-wsp c-nl) )\r
-                    rule           =  rulename defined-as elements c-nl\r
-                    rulename       =  ALPHA *(ALPHA / DIGIT / "-")\r
-                    defined-as     =  *c-wsp ("=" / "=/") *c-wsp\r
-                    elements       =  alternation *c-wsp\r
-                    c-wsp          =  WSP / (c-nl WSP)\r
-                    c-nl           =  comment / CRLF\r
-                    comment        =  ";" *(WSP / VCHAR) CRLF\r
-                    alternation    =  concatenation\r
-                                      *(*c-wsp "/" *c-wsp concatenation)\r
-                    concatenation  =  repetition *(1*c-wsp repetition)\r
-                    repetition     =  [repeat] element\r
-                    repeat         =  1*DIGIT / (*DIGIT "*" *DIGIT)\r
-                    element        =  rulename / group / option /\r
-                                      char-val / num-val / prose-val\r
-                    group          =  "(" *c-wsp alternation *c-wsp ")"\r
-                    option         =  "[" *c-wsp alternation *c-wsp "]"\r
-                    char-val       =  DQUOTE *(%x20-21 / %x23-7E) DQUOTE\r
-                    num-val        =  "%" (bin-val / dec-val / hex-val)\r
-                    bin-val        =  "b" 1*BIT\r
-                                      [ 1*("." 1*BIT) / ("-" 1*BIT) ]\r
-                    dec-val        =  "d" 1*DIGIT\r
-                                      [ 1*("." 1*DIGIT) / ("-" 1*DIGIT) ]\r
-                    hex-val        =  "x" 1*HEXDIG\r
-                                      [ 1*("." 1*HEXDIG) / ("-" 1*HEXDIG) ]\r
-                    """
-                )
-                .rules(),
+            ABNFs.of(
+                """
+                rulelist       =  1*( rule / (*c-wsp c-nl) )\r
+                rule           =  rulename defined-as elements c-nl\r
+                rulename       =  ALPHA *(ALPHA / DIGIT / "-")\r
+                defined-as     =  *c-wsp ("=" / "=/") *c-wsp\r
+                elements       =  alternation *c-wsp\r
+                c-wsp          =  WSP / (c-nl WSP)\r
+                c-nl           =  comment / CRLF\r
+                comment        =  ";" *(WSP / VCHAR) CRLF\r
+                alternation    =  concatenation\r
+                                  *(*c-wsp "/" *c-wsp concatenation)\r
+                concatenation  =  repetition *(1*c-wsp repetition)\r
+                repetition     =  [repeat] element\r
+                repeat         =  1*DIGIT / (*DIGIT "*" *DIGIT)\r
+                element        =  rulename / group / option /\r
+                                  char-val / num-val / prose-val\r
+                group          =  "(" *c-wsp alternation *c-wsp ")"\r
+                option         =  "[" *c-wsp alternation *c-wsp "]"\r
+                char-val       =  DQUOTE *(%x20-21 / %x23-7E) DQUOTE\r
+                num-val        =  "%" (bin-val / dec-val / hex-val)\r
+                bin-val        =  "b" 1*BIT\r
+                                  [ 1*("." 1*BIT) / ("-" 1*BIT) ]\r
+                dec-val        =  "d" 1*DIGIT\r
+                                  [ 1*("." 1*DIGIT) / ("-" 1*DIGIT) ]\r
+                hex-val        =  "x" 1*HEXDIG\r
+                                  [ 1*("." 1*HEXDIG) / ("-" 1*HEXDIG) ]\r
+                """
+            ).rules(),
             isAbnfSpecAsRuleList()
         );
     }

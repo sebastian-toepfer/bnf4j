@@ -44,12 +44,10 @@ class ConcatenationTest {
     @Test
     void should_return_dimension_as_sum() {
         assertThat(
-            Concatenation
-                .of(
-                    Alternative.of(StringElement.of("ab"), StringElement.of("cde")),
-                    Alternative.of(StringElement.of("x"), StringElement.of("yz"))
-                )
-                .dimension(),
+            Concatenation.of(
+                Alternative.of(StringElement.of("ab"), StringElement.of("cde")),
+                Alternative.of(StringElement.of("x"), StringElement.of("yz"))
+            ).dimension(),
             is(Dimension.of(3, 5))
         );
     }

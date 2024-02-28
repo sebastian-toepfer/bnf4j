@@ -61,9 +61,9 @@ class RuleTest {
     @Test
     void should_be_printable() {
         assertThat(
-            Rule
-                .of(RuleName.of("rulename"), Alternative.of(StringElement.of("/"), StringElement.of(";")))
-                .printOn(new HashMapMedia()),
+            Rule.of(RuleName.of("rulename"), Alternative.of(StringElement.of("/"), StringElement.of(";"))).printOn(
+                new HashMapMedia()
+            ),
             allOf(
                 (Matcher) hasEntry(is("type"), is("rule")),
                 hasEntry(is("name"), allOf(hasEntry(is("name"), is("rulename")), hasEntry(is("type"), is("rulename")))),
@@ -91,16 +91,15 @@ class RuleTest {
 
         @BeforeEach
         void initRule() {
-            ruleName =
-                Rule.of(
-                    RuleName.of("rulename"),
-                    Concatenation.of(
-                        CoreRules.ALPHA,
-                        VariableRepetition.of(
-                            SequenceGroup.of(Alternative.of(CoreRules.ALPHA, CoreRules.DIGIT, StringElement.of("-")))
-                        )
+            ruleName = Rule.of(
+                RuleName.of("rulename"),
+                Concatenation.of(
+                    CoreRules.ALPHA,
+                    VariableRepetition.of(
+                        SequenceGroup.of(Alternative.of(CoreRules.ALPHA, CoreRules.DIGIT, StringElement.of("-")))
                     )
-                );
+                )
+            );
         }
 
         @Test

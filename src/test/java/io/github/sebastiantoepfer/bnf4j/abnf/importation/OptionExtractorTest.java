@@ -46,8 +46,7 @@ class OptionExtractorTest {
     @Test
     void should_create_option_with_multivalues() {
         assertThat(
-            OptionExtractor
-                .of(new FakeOwner())
+            OptionExtractor.of(new FakeOwner())
                 .append('a')
                 .append(' ')
                 .append('b')

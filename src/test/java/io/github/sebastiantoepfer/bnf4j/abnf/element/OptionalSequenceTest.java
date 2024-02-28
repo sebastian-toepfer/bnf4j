@@ -77,9 +77,9 @@ class OptionalSequenceTest {
     @Test
     void should_be_valid_for_every_codepoint() {
         assertThat(
-            OptionalSequence
-                .of(List.of(StringElement.of("/"), StringElement.of(";")))
-                .isValidFor(ValidateableCodePoint.of(0, ',')),
+            OptionalSequence.of(List.of(StringElement.of("/"), StringElement.of(";"))).isValidFor(
+                ValidateableCodePoint.of(0, ',')
+            ),
             is(true)
         );
     }
