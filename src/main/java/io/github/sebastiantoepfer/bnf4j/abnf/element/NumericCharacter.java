@@ -62,7 +62,7 @@ public final class NumericCharacter implements Element {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 97 * hash + Objects.hashCode(value);
+        hash = 97 * hash + Integer.hashCode(value);
         return hash;
     }
 
