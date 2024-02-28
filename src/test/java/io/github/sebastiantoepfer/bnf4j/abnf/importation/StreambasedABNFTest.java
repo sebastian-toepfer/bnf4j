@@ -26,7 +26,6 @@ package io.github.sebastiantoepfer.bnf4j.abnf.importation;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-import io.github.sebastiantoepfer.bnf4j.abnf.importation.StreambasedABNF;
 import java.io.IOException;
 import java.io.Reader;
 import org.junit.jupiter.api.Test;
@@ -42,7 +41,7 @@ class StreambasedABNFTest {
         assertThat(r.isClosed, is(true));
     }
 
-    private class ReaderImpl extends Reader {
+    private static class ReaderImpl extends Reader {
 
         boolean isClosed = false;
 
