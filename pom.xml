@@ -46,7 +46,7 @@
         <project.build.outputTimestamp>2024-02-04T15:20:00Z</project.build.outputTimestamp>
 
         <maven.compiler.source>17</maven.compiler.source>
-        <ddd.version>0.6.0</ddd.version>
+        <ddd.version>0.7.0</ddd.version>
     </properties>
 
     <dependencies>
