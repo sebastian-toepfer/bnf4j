@@ -44,14 +44,14 @@ class NewLineDetector implements ElementEndDetector {
         final NewLineDetector result;
         if (lf) {
             result = new NewLineDetector(
-                cr && !Character.isWhitespace(codePoint),
+                cr && (!Character.isWhitespace(codePoint) || isCarriageReturn(codePoint)),
                 !Character.isWhitespace(codePoint),
                 codePoint
             );
         } else if (cr) {
-            result = new NewLineDetector(codePoint == '\n', codePoint == '\n', codePoint);
+            result = new NewLineDetector(isLineFeed(codePoint), isLineFeed(codePoint), codePoint);
         } else {
-            result = new NewLineDetector(codePoint == '\r', false, codePoint);
+            result = new NewLineDetector(isCarriageReturn(codePoint), false, codePoint);
         }
         return result;
     }
@@ -64,5 +64,13 @@ class NewLineDetector implements ElementEndDetector {
     @Override
     public Extractor applyTo(final Extractor imDone) {
         return imDone.append('\r').append('\n').append(lastCodePoint);
+    }
+
+    private static boolean isLineFeed(final int codePoint) {
+        return codePoint == '\n';
+    }
+
+    private static boolean isCarriageReturn(final int codePoint) {
+        return codePoint == '\r';
     }
 }
