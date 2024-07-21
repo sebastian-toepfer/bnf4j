@@ -49,6 +49,7 @@ class ABNFsTest {
             ABNFs.of(
                 """
                 rulelist       =  1*( rule / (*c-wsp c-nl) )\r
+                \r
                 rule           =  rulename defined-as elements c-nl\r
                 rulename       =  ALPHA *(ALPHA / DIGIT / "-")\r
                 defined-as     =  *c-wsp ("=" / "=/") *c-wsp\r

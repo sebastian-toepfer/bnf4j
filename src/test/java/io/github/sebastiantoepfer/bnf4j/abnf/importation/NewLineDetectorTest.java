@@ -26,9 +26,6 @@ package io.github.sebastiantoepfer.bnf4j.abnf.importation;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-import io.github.sebastiantoepfer.bnf4j.abnf.importation.Creator;
-import io.github.sebastiantoepfer.bnf4j.abnf.importation.Extractor;
-import io.github.sebastiantoepfer.bnf4j.abnf.importation.NewLineDetector;
 import org.junit.jupiter.api.Test;
 
 class NewLineDetectorTest {
@@ -71,6 +68,14 @@ class NewLineDetectorTest {
     @Test
     void should_reach_end_after_crlfnonwsp() {
         assertThat(new NewLineDetector().append('\r').append('\n').append('a').isEndReached(), is(true));
+    }
+
+    @Test
+    void should_reach_end_after_crlfcrlfnonwsp() {
+        assertThat(
+            new NewLineDetector().append('\r').append('\n').append('\r').append('\n').append('a').isEndReached(),
+            is(true)
+        );
     }
 
     @Test
