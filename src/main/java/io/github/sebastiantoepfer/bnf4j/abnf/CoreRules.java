@@ -37,7 +37,7 @@ import io.github.sebastiantoepfer.bnf4j.abnf.element.VariableRepetition;
 import io.github.sebastiantoepfer.ddd.common.Media;
 
 public enum CoreRules implements Element {
-    ALPHA() {
+    ALPHA {
         @Override
         Element definition() {
             return Alternative.of(
@@ -52,13 +52,13 @@ public enum CoreRules implements Element {
             );
         }
     },
-    BIT() {
+    BIT {
         @Override
         Element definition() {
             return Alternative.of(StringElement.of("0"), StringElement.of("1"));
         }
     },
-    CHAR() {
+    CHAR {
         @Override
         Element definition() {
             return ValueRangeAlternatives.of(
@@ -67,19 +67,19 @@ public enum CoreRules implements Element {
             );
         }
     },
-    CR() {
+    CR {
         @Override
         Element definition() {
             return NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x0D);
         }
     },
-    CRLF() {
+    CRLF {
         @Override
         Element definition() {
             return Concatenation.of(CR, LF);
         }
     },
-    CTL() {
+    CTL {
         @Override
         Element definition() {
             return Alternative.of(
@@ -91,7 +91,7 @@ public enum CoreRules implements Element {
             );
         }
     },
-    DIGIT() {
+    DIGIT {
         @Override
         Element definition() {
             return ValueRangeAlternatives.of(
@@ -100,13 +100,13 @@ public enum CoreRules implements Element {
             );
         }
     },
-    DQUOTE() {
+    DQUOTE {
         @Override
         Element definition() {
             return NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x22);
         }
     },
-    HEXDIG() {
+    HEXDIG {
         @Override
         Element definition() {
             return Alternative.of(
@@ -120,25 +120,25 @@ public enum CoreRules implements Element {
             );
         }
     },
-    HTAB() {
+    HTAB {
         @Override
         Element definition() {
             return NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x09);
         }
     },
-    LF() {
+    LF {
         @Override
         Element definition() {
             return NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x0A);
         }
     },
-    LWSP() {
+    LWSP {
         @Override
         Element definition() {
             return VariableRepetition.of(SequenceGroup.of(Concatenation.of(Alternative.of(WSP, CRLF), WSP)));
         }
     },
-    OCTET() {
+    OCTET {
         @Override
         Element definition() {
             return ValueRangeAlternatives.of(
@@ -147,13 +147,13 @@ public enum CoreRules implements Element {
             );
         }
     },
-    SP() {
+    SP {
         @Override
         Element definition() {
             return NumericCharacter.of(NumericCharacter.BASE.HEXADECIMAL, 0x20);
         }
     },
-    VCHAR() {
+    VCHAR {
         @Override
         Element definition() {
             return ValueRangeAlternatives.of(

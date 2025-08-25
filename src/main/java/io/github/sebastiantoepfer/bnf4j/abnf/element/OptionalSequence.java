@@ -56,10 +56,9 @@ public final class OptionalSequence implements Element {
 
     @Override
     public Dimension dimension() {
-        return Dimension.zero()
-            .expandTo(
-                optionalElements.stream().map(Element::dimension).sorted().reduce(Dimension.zero(), Dimension::plus)
-            );
+        return Dimension.zero().expandTo(
+            optionalElements.stream().map(Element::dimension).sorted().reduce(Dimension.zero(), Dimension::plus)
+        );
     }
 
     @Override

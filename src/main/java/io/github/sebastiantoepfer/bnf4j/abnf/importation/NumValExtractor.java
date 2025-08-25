@@ -48,13 +48,12 @@ class NumValExtractor implements Extractor {
     @Override
     public Extractor append(final int codePoint) {
         final NumericCharacter.BASE base = NumericCharacter.BASE.findByShortName(Character.toChars(codePoint)[0]);
-        final CoreRules rule =
-            switch (base) {
-                case BINARY -> CoreRules.BIT;
-                case DECIMAL -> CoreRules.DIGIT;
-                case HEXADECIMAL -> CoreRules.HEXDIG;
-                default -> throw new AssertionError();
-            };
+        final CoreRules rule = switch (base) {
+            case BINARY -> CoreRules.BIT;
+            case DECIMAL -> CoreRules.DIGIT;
+            case HEXADECIMAL -> CoreRules.HEXDIG;
+            default -> throw new AssertionError();
+        };
         return new SpecificNumValExtractor(owner, base, rule);
     }
 
