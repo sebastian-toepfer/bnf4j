@@ -30,7 +30,7 @@ import io.github.sebastiantoepfer.bnf4j.abnf.element.SpecificRepetition;
 import io.github.sebastiantoepfer.bnf4j.abnf.element.VariableRepetition;
 import java.util.Objects;
 
-class RepetitionExtractor implements Extractor {
+final class RepetitionExtractor implements Extractor {
 
     static Extractor of(final ExtractorOwner owner) {
         return new RepetitionExtractor(owner);
@@ -55,7 +55,7 @@ class RepetitionExtractor implements Extractor {
         return result;
     }
 
-    private static class SpecificRepetitionExtractor implements Extractor, ExtractorOwner {
+    private static final class SpecificRepetitionExtractor implements Extractor, ExtractorOwner {
 
         private final ExtractorOwner owner;
         private final String repeat;
@@ -93,7 +93,7 @@ class RepetitionExtractor implements Extractor {
         }
     }
 
-    private static class AtLeastRepetitionExtractor implements Extractor, ExtractorOwner {
+    private static final class AtLeastRepetitionExtractor implements Extractor, ExtractorOwner {
 
         private final ExtractorOwner owner;
         private final String minRepeat;
@@ -129,7 +129,7 @@ class RepetitionExtractor implements Extractor {
         }
     }
 
-    private static class UnspecificRepetitionExtractor implements Extractor, ExtractorOwner {
+    private static final class UnspecificRepetitionExtractor implements Extractor, ExtractorOwner {
 
         private final ExtractorOwner owner;
 
@@ -161,7 +161,7 @@ class RepetitionExtractor implements Extractor {
         }
     }
 
-    private static class AtMostRepetitionExtractor implements Extractor, ExtractorOwner {
+    private static final class AtMostRepetitionExtractor implements Extractor, ExtractorOwner {
 
         private final ExtractorOwner owner;
         private final String maxRepeat;
@@ -197,7 +197,7 @@ class RepetitionExtractor implements Extractor {
         }
     }
 
-    private static class BetweenRepetitionExtractor implements Extractor, ExtractorOwner {
+    private static final class BetweenRepetitionExtractor implements Extractor, ExtractorOwner {
 
         private final ExtractorOwner owner;
         private final String minRepeat;

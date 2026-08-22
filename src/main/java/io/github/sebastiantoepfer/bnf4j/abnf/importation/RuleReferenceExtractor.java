@@ -27,7 +27,7 @@ import io.github.sebastiantoepfer.bnf4j.abnf.element.RuleName;
 import io.github.sebastiantoepfer.bnf4j.abnf.element.RuleReference;
 import java.util.Objects;
 
-class RuleReferenceExtractor implements Extractor, ExtractorOwner {
+final class RuleReferenceExtractor implements Extractor, ExtractorOwner {
 
     static Extractor of(final ExtractorOwner owner) {
         return new RuleReferenceExtractor(owner);

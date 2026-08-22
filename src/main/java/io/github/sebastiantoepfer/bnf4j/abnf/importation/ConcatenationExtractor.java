@@ -32,7 +32,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-class ConcatenationExtractor implements Extractor, ExtractorOwner {
+final class ConcatenationExtractor implements Extractor, ExtractorOwner {
 
     static Extractor of(final ExtractorOwner owner) {
         return new ConcatenationExtractor(owner, List.of(), new NewLineDetector());

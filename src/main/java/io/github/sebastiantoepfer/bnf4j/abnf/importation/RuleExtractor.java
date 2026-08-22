@@ -58,7 +58,7 @@ final class RuleExtractor implements Extractor, ExtractorOwner {
         return new DefinedAsExtractor(owner, creator.createAs(RuleName.class));
     }
 
-    private static class DefinedAsExtractor implements Extractor, ExtractorOwner {
+    private static final class DefinedAsExtractor implements Extractor, ExtractorOwner {
 
         private final ExtractorOwner owner;
         private final RuleName ruleName;

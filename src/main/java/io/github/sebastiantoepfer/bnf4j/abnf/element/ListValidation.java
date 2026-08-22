@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
-class ListValidation {
+final class ListValidation {
 
     private final List<Element> elements;
     private final Function<List<Element>, Element> newElement;
