@@ -33,7 +33,7 @@ import io.github.sebastiantoepfer.bnf4j.abnf.element.ValidateableCodePoint;
 import io.github.sebastiantoepfer.bnf4j.abnf.element.ValueRangeAlternatives;
 import java.util.Objects;
 
-class NumValExtractor implements Extractor {
+final class NumValExtractor implements Extractor {
 
     static Extractor of(final ExtractorOwner owner) {
         return new NumValExtractor(owner);
@@ -57,7 +57,7 @@ class NumValExtractor implements Extractor {
         return new SpecificNumValExtractor(owner, base, rule);
     }
 
-    private static class SpecificNumValExtractor implements Extractor {
+    private static final class SpecificNumValExtractor implements Extractor {
 
         private final ExtractorOwner owner;
         private final NumericCharacter.BASE base;
@@ -112,7 +112,7 @@ class NumValExtractor implements Extractor {
         }
     }
 
-    private static class ValueRangeExtractor implements Extractor {
+    private static final class ValueRangeExtractor implements Extractor {
 
         private final ExtractorOwner owner;
         private final NumericCharacter.BASE base;

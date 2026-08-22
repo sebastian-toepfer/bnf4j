@@ -28,7 +28,7 @@ import static io.github.sebastiantoepfer.bnf4j.abnf.importation.UsefulCodepoints
 import io.github.sebastiantoepfer.bnf4j.abnf.element.StringElement;
 import java.util.Objects;
 
-class CharValExtractor implements Extractor {
+final class CharValExtractor implements Extractor {
 
     static Extractor of(final ExtractorOwner owner) {
         return new CharValExtractor(owner, "");

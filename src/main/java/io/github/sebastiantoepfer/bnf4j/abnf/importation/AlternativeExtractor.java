@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 
-class AlternativeExtractor implements Extractor, ExtractorOwner {
+final class AlternativeExtractor implements Extractor, ExtractorOwner {
 
     static Extractor of(
         final ExtractorOwner owner,
